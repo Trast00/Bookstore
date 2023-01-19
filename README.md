@@ -36,8 +36,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
 - **Build with React and Redux**
 - **Navigation with Routes**
 - **Add / Edit / Remove Books**
@@ -85,9 +83,9 @@ To run the project, execute the following command:
 
 👤 **Dicko Allasane**
 
-- GitHub: [@githubhandle](https://github.com/Trast00)
-- Twitter: [@twitterhandle](https://twitter.com/AllassaneDicko0/)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/allassane-dicko-744aaa224)
+- GitHub: [Trast00](https://github.com/Trast00)
+- Twitter: [dicko allassane](https://twitter.com/AllassaneDicko0/)
+- LinkedIn: [dicko allassane](https://www.linkedin.com/in/allassane-dicko-744aaa224)
 
 
 ## 🔭 Future Features <a name="future-features"></a>
