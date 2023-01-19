@@ -164,3 +164,35 @@
   align-self: flex-end;
 }
 
+/* FORM */
+.new-book {
+  text-align: start;
+  padding: 24px 2.5vw 150px 2.5vw;
+  color: var(--color-text-gray);
+}
+
+.new-book h2 {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.new-book input {
+  flex: 1;
+  padding: 16px;
+  margin-right: 24px;
+  margin-top: 32px;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  outline: none;
+}
+
+#form-title {
+  flex: 2 1;
+}
+
+.new-book #btn-add-book {
+  flex: 0;
+  width: 120px;
+  margin-right: 0;
+  font-weight: 700;
+}
