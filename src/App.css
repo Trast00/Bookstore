@@ -91,3 +91,76 @@
   background-color: var(--color-primary);
   color: white;
 }
+
+.list-book {
+  margin: 2vw;
+  padding-bottom: 16px;
+}
+
+.book {
+  width: 100%;
+  text-align: start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  background-color: white;
+  border: 1px solid #e9e9e9;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding: 24px 2.5vw 24px 2.5vw;
+  border-radius: 4px;
+}
+
+.book .book-genre {
+  font-size: 1rem;
+  color: var(--color-text-gray);
+  font-weight: 500;
+}
+
+.book .book-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.book .book-author {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text-blue);
+}
+
+.book-left ul {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 24px;
+  margin-bottom: 14px;
+  color: var(--color-text-blue);
+  gap: 8px;
+}
+
+.book-left ul li {
+  border-right: 2px solid #d3d3d3;
+  padding-right: 8px;
+}
+
+.book-left ul li:last-child {
+  border-right: none;
+  padding-right: 4px;
+}
+
+.book-mid {
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.book-right {
+  justify-content: space-between;
+}
+
+.last-chapter {
+  font-weight: 300;
+}
+
+.btn-update-progress {
+  border-radius: 4px;
+  align-self: flex-end;
+}
+
