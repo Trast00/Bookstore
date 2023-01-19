@@ -1,3 +1,93 @@
 .App {
+  min-width: 450px;
+  min-height: 500px;
+  margin: 5vw;
   text-align: center;
+  background-color: #fbfbfb;
+  box-shadow: 3px 6px 20px rgba(174, 174, 174, 0.663);
+
+  --color-primary: #0290ff;
+  --color-primary-dark: #0290ff;
+  --color-text: #121212;
+  --color-text-blue: #4386bf;
+  --color-text-gray: #888;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-style {
+  list-style: none;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text);
+}
+
+.btns-blue {
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: var(--color-primary-dark);
+  padding: 8px 12px 8px 12px;
+}
+
+.btns-blue:hover {
+  background-color: #006ec3;
+}
+
+.navbar {
+  padding: 24px 2.5vw 24px 2.5vw;
+  border-bottom: 1px solid #d3d3d3;
+  background-color: white;
+}
+
+.nav-title a {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.nav-list {
+  flex: 1;
+  padding-left: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-btns {
+  font-size: 1.25rem;
+  color: #121212;
+  font-weight: 300;
+  margin-left: 8px;
+}
+
+.nav-btns.profile {
+  width: 35px;
+  height: 35px;
+  padding: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 50%;
+  color: var(--color-primary);
+  border: 0.8px solid var(--color-primary);
+}
+
+.nav-btns.profile:hover {
+  background-color: var(--color-primary);
+  color: white;
 }
