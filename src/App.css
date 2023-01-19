@@ -104,8 +104,6 @@
   margin-bottom: 12px;
   background-color: white;
   border: 1px solid #e9e9e9;
-  padding-left: 4vw;
-  padding-right: 4vw;
   padding: 24px 2.5vw 24px 2.5vw;
   border-radius: 4px;
 }
@@ -195,6 +193,7 @@
   width: 120px;
   margin-right: 0;
   font-weight: 700;
+  border: none;
 }
 
 .list-categories {
