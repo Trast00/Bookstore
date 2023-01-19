@@ -196,3 +196,7 @@
   margin-right: 0;
   font-weight: 700;
 }
+
+.list-categories {
+  min-height: 300px;
+}
