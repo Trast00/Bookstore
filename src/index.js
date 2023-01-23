@@ -5,11 +5,9 @@ import App from './App';
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 
-import rootReducer from './reducers/configureStore'
+import combineReducers from './reducers/configureStore'
 
-const store = configureStore({ configureStore })
-
-
+const store = configureStore({ combineReducers })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
