@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import booksReducer from './books/books';
 import categoriesReducer from './categories/categories';
 
-export default combineReducers({
+export default configureStore({reducer: {
   booksReducer,
   categoriesReducer,
-});
+}});
