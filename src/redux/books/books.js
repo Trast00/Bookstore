@@ -12,9 +12,9 @@ export default function booksReducer(state = [], action) {
   }
 }
 
-const addBook = (book) => ({ type: ADD_BOOK, payload: book });
+export const addBook = (book) => ({ type: ADD_BOOK, payload: book });
 
-const removeBook = (index) => ({ type: REMOVE_BOOK, payload: index });
+export const removeBook = (index) => ({ type: REMOVE_BOOK, payload: index });
 
 // should be used only in the next project but need to be used to fix linter errors
 addBook(null);
