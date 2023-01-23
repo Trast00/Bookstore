@@ -6,7 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import combineReducers from './redux/configureStore';
 import App from './App';
 
-const store = configureStore({ combineReducers });
+const store = configureStore({ reducer: combineReducers });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
