@@ -14,6 +14,21 @@ export const fetchBooks = async () => {
   return data
 }
 
+export const postBook = async (book) => {
+  const result = await fetch(apiUrl, {
+    method: 'POST',
+    headers: {'Content-Type': "application/json"},
+    body: JSON.stringify({
+      item_id: book.id,
+      title: book.title,
+      author: book.author,
+      category: "Fiction"
+    })
+  })
+  console.log('result fetchB: ', result)
+  return result.ok
+}
+
 const createBookApi = async () => {
   const result = await fetch(
     'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/',
@@ -27,3 +42,12 @@ const createBookApi = async () => {
     console.log(id)
   })
 }
+
+const book1 = {
+  id: uuidv4(),
+  title: "book.title 1",
+  author: "book.author 2"
+}
+
+//console.log(postBook(book1))
+//console.log(fetchBooks())
