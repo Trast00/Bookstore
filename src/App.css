@@ -137,6 +137,7 @@
 .book-left ul li {
   border-right: 2px solid #d3d3d3;
   padding-right: 8px;
+  cursor: pointer;
 }
 
 .book-left ul li:last-child {
