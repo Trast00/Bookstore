@@ -1,4 +1,6 @@
+import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { fetchBooks } from './bookAPI';
 
 const ADD_BOOK = 'bookstore/redux/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/redux/REMOVE_BOOK';
@@ -21,3 +23,7 @@ export default function booksReducer(state = [...listBookDefault], action) {
 export const addBook = (book) => ({ type: ADD_BOOK, payload: book });
 
 export const removeBook = (id) => ({ type: REMOVE_BOOK, payload: id });
+
+export const getBooks = () => {
+  return (useDispatch)
+}
