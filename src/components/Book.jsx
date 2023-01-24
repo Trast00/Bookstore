@@ -3,6 +3,12 @@ import { useDispatch } from 'react-redux'
 import { removeBook } from '../redux/books/books'
 
 function Book(props) {
+  const dispatch = useDispatch()
+
+  const handleRemove = () => {
+    dispatch(removeBook(props.id))
+  }
+
   return (
     <main className='row book'>
       <div className='column book-left'>

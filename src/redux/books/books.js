@@ -12,8 +12,6 @@ export default function booksReducer(state = [...listBookDefault], action) {
   switch (action.type) {
     case ADD_BOOK: return [...state, action.payload];
     case REMOVE_BOOK:
-      console.log(state, action.payload)
-      console.log(state.filter((book) => book.id !== action.payload))
       return state.filter((book) => book.id !== action.payload);
     default: return state;
   }
@@ -22,8 +20,3 @@ export default function booksReducer(state = [...listBookDefault], action) {
 export const addBook = (book) => ({ type: ADD_BOOK, payload: book });
 
 export const removeBook = (id) => ({ type: REMOVE_BOOK, payload: id });
-
-// should be used only in the next project but need to be used to fix linter errors
-addBook(null);
-// should be used only in the next project but need to be used to fix linter errors
-removeBook(null);
