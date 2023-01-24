@@ -1,19 +1,19 @@
 import React from 'react'
-import { useState } from 'react'
+import { shallowEqual, useSelector } from 'react-redux'
 import Book from '../Book'
 import NewBook from '../NewBook'
 
 const ListBook = () => {
-  const [listBook, setListBook] = useState([
-    <Book title="The Hunger Games" author="Suzanne Collins"/>,
-    <Book title="Title 2" author="Trast00"/>,
-    <Book title="Title 3" author="Trast00"/>
-  ])
+  const listBook = []
+  useSelector((state) => state.booksReducer, shallowEqual)
+  .forEach(book => {
+    listBook.push(<Book key={book.id} id={book.id} title={book.title} author={book.author}/>)
+  });
 
   return (
     <main className='list-book-wrapper'>
       <ul className='no-style list-book'>
-        {listBook.length? listBook : <p>Empty list</p>}
+        {!listBook.length? <p>Empty list</p> : listBook}
       </ul>
       <NewBook />
     </main>

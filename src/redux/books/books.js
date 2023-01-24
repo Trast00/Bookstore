@@ -1,7 +1,15 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const ADD_BOOK = 'bookstore/redux/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/redux/REMOVE_BOOK';
 
-export default function booksReducer(state = [], action) {
+const listBookDefault = [
+  { id: uuidv4(), title: 'The Hunger Games', author: 'Suzanne Collins' },
+  { id: uuidv4(), title: 'Title 2', author: 'Trast00' },
+  { id: uuidv4(), title: 'Title 3', author: 'Trast00' },
+];
+
+export default function booksReducer(state = [...listBookDefault], action) {
   switch (action.type) {
     case ADD_BOOK: return [...state, action.payload];
     case REMOVE_BOOK:
@@ -12,9 +20,4 @@ export default function booksReducer(state = [], action) {
 
 export const addBook = (book) => ({ type: ADD_BOOK, payload: book });
 
-export const removeBook = (index) => ({ type: REMOVE_BOOK, payload: index });
-
-// should be used only in the next project but need to be used to fix linter errors
-addBook(null);
-// should be used only in the next project but need to be used to fix linter errors
-removeBook(null);
+export const removeBook = (id) => ({ type: REMOVE_BOOK, payload: id });

@@ -1,6 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { removeBook } from '../redux/books/books'
 
 function Book(props) {
+  const dispatch = useDispatch()
+
+  const handleRemove = () => {
+    dispatch(removeBook(props.id))
+  }
+
   return (
     <main className='row book'>
       <div className='column book-left'>
@@ -9,7 +17,7 @@ function Book(props) {
         <p className='book-author'>{props.author}</p>
         <ul className='no-style row'>
           <li className='btn-book'>Comments</li>
-          <li className='btn-book'>Remove</li>
+          <li className='btn-book' onClick={handleRemove}>Remove</li>
           <li className='btn-book'>Edit</li>
         </ul>
       </div>

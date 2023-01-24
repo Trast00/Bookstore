@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addBook } from '../redux/books/books'
+import { v4 as uuidv4 } from "uuid";
 
 function NewBook() {
+  const dispatch = useDispatch()
+  const [title, setTitle] = useState("")
+  const [author, setAuthor] = useState("")
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const newBook = {id: uuidv4(), title: title, author: author}
+    dispatch(addBook(newBook))
+    setTitle('')
+    setAuthor('')
+  }
   return (
     <main className='column new-book'>
       <h2>ADD NEW BOOK</h2>
-      <form className='row'>
-        <input type="text" name="title" id="form-title" placeholder='Book title'/>
-        <input type="text" name="author" id="form-author" placeholder='Author'/>
-        <input type="submit" name="btn-add-book" id="btn-add-book" value="ADD BOOK" className='btns-blue'/>
+      <form className='row form-add-book' onSubmit={handleSubmit}>
+        <input type="text" name="title" id="form-title" placeholder='Book title' 
+        value={title} onChange={(event)=> setTitle(event.currentTarget.value)}/>
+        <input type="text" name="author" id="form-author" placeholder='Author'
+        value={author} onChange={(event)=> setAuthor(event.currentTarget.value)}/>
+        <input type="submit" name="btn-add-book" id="btn-add-book" value="ADD BOOK" 
+        className='btns-blue'/>
       </form>
     </main>
   )
