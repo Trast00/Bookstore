@@ -10,6 +10,3 @@ export default function categoriesReducer(state = [], action) {
 }
 
 export const checkStatus = () => ({ type: CHECK_STATUS });
-
-// should be used only in the next project but need to be used to fix linter errors
-checkStatus(null);

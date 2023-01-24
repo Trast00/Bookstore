@@ -1,12 +1,13 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const ADD_BOOK = 'bookstore/redux/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/redux/REMOVE_BOOK';
-import { v4 as uuidv4 } from "uuid";
 
 const listBookDefault = [
-  {id: uuidv4(), title: "The Hunger Games", author: "Suzanne Collins"},
-  {id: uuidv4(), title: "Title 2", author: "Trast00"},
-  {id: uuidv4(), title: "Title 3", author: "Trast00"}
-]
+  { id: uuidv4(), title: 'The Hunger Games', author: 'Suzanne Collins' },
+  { id: uuidv4(), title: 'Title 2', author: 'Trast00' },
+  { id: uuidv4(), title: 'Title 3', author: 'Trast00' },
+];
 
 export default function booksReducer(state = [...listBookDefault], action) {
   switch (action.type) {

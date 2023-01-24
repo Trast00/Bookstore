@@ -200,3 +200,7 @@
 .list-categories {
   min-height: 300px;
 }
+
+.list-categories .btns-blue {
+  margin-top: 50px;
+}
