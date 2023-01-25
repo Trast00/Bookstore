@@ -1,14 +1,24 @@
 import React from 'react'
-import { shallowEqual, useSelector } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import Book from '../Book'
 import NewBook from '../NewBook'
+import { fetchBooks } from '../../redux/books/book'
+import { useEffect } from 'react'
 
 const ListBook = () => {
   const listBook = []
-  useSelector((state) => state.booksReducer, shallowEqual)
-  .forEach(book => {
-    listBook.push(<Book key={book.id} id={book.id} title={book.title} author={book.author}/>)
-  });
+
+  const dispatch = useDispatch()
+  useEffect(()=> {
+    dispatch(fetchBooks())
+  }, [])
+
+  const result = useSelector((state) => state.booksReducer, shallowEqual)
+  if (result.length !== 0){
+    result.listBook.forEach(book => {
+      listBook.push(<Book key={book.id} id={book.id} title={book.title} author={book.author}/>)
+    })
+  }
 
   return (
     <main className='list-book-wrapper'>
