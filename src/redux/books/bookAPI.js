@@ -11,10 +11,16 @@ const apiUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/books
 
 export const fetchBooks = createAsyncThunk("bookstore/book/GET_BOOK", async () => {
   const result = await fetch(apiUrl)
-  //console.log('result fetchB: ', result)
   const data = await result.json()
-  //console.log('data fetchB: ', data)
-  return data
+
+  const listBook = []
+  Object.keys(data).forEach(keys => {
+    const book = {id: keys, title: data[keys][0].title, author: data[keys][0].author}
+    listBook.push(book)
+  })
+
+  console.log("LIST BOOK: ", listBook)
+  return listBook
 }) 
 
 export const postBook = createAsyncThunk("bookstore/book/POST_BOOK", async (book) => {
@@ -29,7 +35,7 @@ export const postBook = createAsyncThunk("bookstore/book/POST_BOOK", async (book
     })
   })
   console.log('result fetchB: ', result)
-  return result.ok
+  return book
 })
 
 const removeBook = createAsyncThunk("bookstore/book/REMOVE_BOOK", async (id) => {
@@ -65,9 +71,10 @@ export const bookAPIReducer = createSlice({
   extraReducers : (builder) => {
     builder
     .addCase(fetchBooks.fulfilled, (state, action) => {
-      console.log('I RUN !!! and I have the money :', action.payload)
-      state.push(action.payload)
-      //console.log('HERE IS IT: ',useStore().getState())
+      return {...state, listBook: [...action.payload]}
+    })
+    .addCase(postBook.fulfilled, (state, action) => {
+      state.listBook.push(action.payload)
     })
   }
 })

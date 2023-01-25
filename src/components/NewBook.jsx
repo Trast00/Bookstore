@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addBook } from '../redux/books/books'
 import { v4 as uuidv4 } from "uuid";
+import { postBook } from '../redux/books/bookAPI';
 
 function NewBook() {
   const dispatch = useDispatch()
@@ -10,7 +11,7 @@ function NewBook() {
   const handleSubmit = (event) => {
     event.preventDefault()
     const newBook = {id: uuidv4(), title: title, author: author}
-    dispatch(addBook(newBook))
+    dispatch(postBook(newBook))
     setTitle('')
     setAuthor('')
   }
