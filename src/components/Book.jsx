@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { removeBook } from '../redux/books/bookAPI'
+import { removeBook } from '../redux/books/book'
 
 
 function Book(props) {

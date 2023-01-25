@@ -2,7 +2,7 @@ import React from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import Book from '../Book'
 import NewBook from '../NewBook'
-import { fetchBooks } from '../../redux/books/bookAPI'
+import { fetchBooks } from '../../redux/books/book'
 import { useEffect } from 'react'
 
 const ListBook = () => {

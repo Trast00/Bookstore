@@ -1,12 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import categoriesReducer from './categories/categories';
-import { bookAPIReducer } from './books/bookAPI';
+import { bookAPIReducer } from './books/book';
 
-//configureStore
+// configureStore
 export default configureStore({
   reducer: {
     booksReducer: bookAPIReducer.reducer,
-    categoriesReducer
+    categoriesReducer,
   },
 });
-
