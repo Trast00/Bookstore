@@ -1,4 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import { useState } from 'react';
+import { useStore } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -6,15 +9,15 @@ import { v4 as uuidv4 } from 'uuid';
 const apiID = "dEKTcaMjVTpVo4TTyLFG"
 const apiUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiID}/books`
 
-export const fetchBooks = async () => {
+export const fetchBooks = createAsyncThunk("bookstore/book/GET_BOOK", async () => {
   const result = await fetch(apiUrl)
-  console.log('result fetchB: ', result)
+  //console.log('result fetchB: ', result)
   const data = await result.json()
-  console.log('data fetchB: ', data)
+  //console.log('data fetchB: ', data)
   return data
-}
+}) 
 
-export const postBook = async (book) => {
+export const postBook = createAsyncThunk("bookstore/book/POST_BOOK", async (book) => {
   const result = await fetch(apiUrl, {
     method: 'POST',
     headers: {'Content-Type': "application/json"},
@@ -27,9 +30,9 @@ export const postBook = async (book) => {
   })
   console.log('result fetchB: ', result)
   return result.ok
-}
+})
 
-const removeBook = async (id) => {
+const removeBook = createAsyncThunk("bookstore/book/REMOVE_BOOK", async (id) => {
   const result = await fetch(`${apiUrl}/${id}`, {
     method: 'DELETE',
     headers: {'Content-Type': "application/json"},
@@ -39,8 +42,7 @@ const removeBook = async (id) => {
   })
   console.log('result fetchB: ', result)
   return result.ok
-  
-}
+})
 
 const createBookApi = async () => {
   const result = await fetch(
@@ -56,14 +58,17 @@ const createBookApi = async () => {
   })
 }
 
-const bookAPIReducer = createSlice({
+export const bookAPIReducer = createSlice({
   name: "bookstore/book/",
   initialState : [],
   reducers: {},
-  extraReducers : {
-    [postBook.pending]: () => {console.log('r pending')},
-    [postBook.fulfillled]: () => {console.log('r fulfilled')},
-    [postBook.rejected]: () => {console.log('r rejected')},
+  extraReducers : (builder) => {
+    builder
+    .addCase(fetchBooks.fulfilled, (state, action) => {
+      console.log('I RUN !!! and I have the money :', action.payload)
+      state.push(action.payload)
+      //console.log('HERE IS IT: ',useStore().getState())
+    })
   }
 })
 
