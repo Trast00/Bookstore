@@ -1,3 +1,4 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { fetchBooks } from './bookAPI';
@@ -27,3 +28,17 @@ export const removeBook = (id) => ({ type: REMOVE_BOOK, payload: id });
 export const getBooks = () => {
   return (useDispatch)
 }
+
+const bookReducer = createSlice({
+  name: "bookstore/book/",
+  initialState : [],
+  reducers: {
+    "addBook" : addBook,
+    "removeBook" : removeBook
+  },
+  extraReducers : {
+    [postBook.pending]: () => {},
+    [postBook.fulfillled]: () => {},
+    [postBook.rejected]: () => {},
+  }
+})

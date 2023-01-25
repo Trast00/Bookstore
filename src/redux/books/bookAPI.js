@@ -56,6 +56,17 @@ const createBookApi = async () => {
   })
 }
 
+const bookAPIReducer = createSlice({
+  name: "bookstore/book/",
+  initialState : [],
+  reducers: {},
+  extraReducers : {
+    [postBook.pending]: () => {console.log('r pending')},
+    [postBook.fulfillled]: () => {console.log('r fulfilled')},
+    [postBook.rejected]: () => {console.log('r rejected')},
+  }
+})
+
 /*const book1 = {
   id: uuidv4(),
   title: "book.title 1",
