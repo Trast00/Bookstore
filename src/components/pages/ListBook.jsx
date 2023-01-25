@@ -13,7 +13,7 @@ const ListBook = () => {
     dispatch(fetchBooks())
   }, [])
 
-  const result = useSelector((state) => state.bookAPIReducer, shallowEqual)
+  const result = useSelector((state) => state.booksReducer, shallowEqual)
   if (result.length !== 0){
     result.listBook.forEach(book => {
       listBook.push(<Book key={book.id} id={book.id} title={book.title} author={book.author}/>)

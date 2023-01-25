@@ -1,10 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit';
-import { useState } from 'react';
-import { useStore } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-
-
 
 const apiID = "dEKTcaMjVTpVo4TTyLFG"
 const apiUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiID}/books`
@@ -46,20 +41,6 @@ export const removeBook = createAsyncThunk("bookstore/book/REMOVE_BOOK", async (
   })
   return id
 })
-
-const createBookApi = async () => {
-  const result = await fetch(
-    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/',
-    {
-      method: 'POST',
-      headers: {"Content-Type": "application/json"}
-    }
-  )
-  console.log(result)
-  await result.json().then(id => {
-    console.log(id)
-  })
-}
 
 export const bookAPIReducer = createSlice({
   name: "bookstore/book/",
