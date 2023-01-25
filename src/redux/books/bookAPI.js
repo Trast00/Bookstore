@@ -19,12 +19,11 @@ export const fetchBooks = createAsyncThunk("bookstore/book/GET_BOOK", async () =
     listBook.push(book)
   })
 
-  console.log("LIST BOOK: ", listBook)
   return listBook
 }) 
 
 export const postBook = createAsyncThunk("bookstore/book/POST_BOOK", async (book) => {
-  const result = await fetch(apiUrl, {
+  await fetch(apiUrl, {
     method: 'POST',
     headers: {'Content-Type': "application/json"},
     body: JSON.stringify({
@@ -34,20 +33,18 @@ export const postBook = createAsyncThunk("bookstore/book/POST_BOOK", async (book
       category: "Fiction"
     })
   })
-  console.log('result fetchB: ', result)
   return book
 })
 
-const removeBook = createAsyncThunk("bookstore/book/REMOVE_BOOK", async (id) => {
-  const result = await fetch(`${apiUrl}/${id}`, {
+export const removeBook = createAsyncThunk("bookstore/book/REMOVE_BOOK", async (id) => {
+  await fetch(`${apiUrl}/${id}`, {
     method: 'DELETE',
     headers: {'Content-Type': "application/json"},
     body: JSON.stringify({
       item_id: id,
     })
   })
-  console.log('result fetchB: ', result)
-  return result.ok
+  return id
 })
 
 const createBookApi = async () => {
@@ -76,15 +73,8 @@ export const bookAPIReducer = createSlice({
     .addCase(postBook.fulfilled, (state, action) => {
       state.listBook.push(action.payload)
     })
+    .addCase(removeBook.fulfilled, (state, action) => {
+      return {...state, listBook: state.listBook.filter(book=> book.id !== action.payload)}
+    })
   }
 })
-
-/*const book1 = {
-  id: uuidv4(),
-  title: "book.title 1",
-  author: "book.author 2"
-}
-
-console.log(postBook(book1))
-console.log(removeBook("6ec19de3-8f33-4953-a5f3-006628272c45"))
-console.log(fetchBooks())*/

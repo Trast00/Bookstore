@@ -19,8 +19,6 @@ const ListBook = () => {
       listBook.push(<Book key={book.id} id={book.id} title={book.title} author={book.author}/>)
     })
   }
-  console.log(listBook)
-
 
   return (
     <main className='list-book-wrapper'>
