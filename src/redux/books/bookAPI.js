@@ -29,6 +29,19 @@ export const postBook = async (book) => {
   return result.ok
 }
 
+const removeBook = async (id) => {
+  const result = await fetch(`${apiUrl}/${id}`, {
+    method: 'DELETE',
+    headers: {'Content-Type': "application/json"},
+    body: JSON.stringify({
+      item_id: id,
+    })
+  })
+  console.log('result fetchB: ', result)
+  return result.ok
+  
+}
+
 const createBookApi = async () => {
   const result = await fetch(
     'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/',
@@ -43,11 +56,12 @@ const createBookApi = async () => {
   })
 }
 
-const book1 = {
+/*const book1 = {
   id: uuidv4(),
   title: "book.title 1",
   author: "book.author 2"
 }
 
-//console.log(postBook(book1))
-//console.log(fetchBooks())
+console.log(postBook(book1))
+console.log(removeBook("6ec19de3-8f33-4953-a5f3-006628272c45"))
+console.log(fetchBooks())*/
