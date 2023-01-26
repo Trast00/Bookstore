@@ -10,7 +10,6 @@
   --color-primary-dark: #0290ff;
   --color-text: #121212;
   --color-text-blue: #4386bf;
-
   --color-text-gray: #888;
 }
 
@@ -160,7 +159,6 @@
   color: var(--color-text-gray);
   font-weight: 300;
   border-right: 1px solid #d3d3d3;
-
 }
 
 .completed-rate {
