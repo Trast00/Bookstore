@@ -23,12 +23,8 @@ function Book(props) {
           <li className='btn-book'>Edit</li>
         </ul>
       </div>
-      <div className='flex-center column book-mid'>
-        <CircularProgressBar progress={50}/>
-        <div>
-          <p className='completed-rate'>0%</p>
-          <p>Completed</p>
-        </div>
+      <div className='flex-center row book-mid'>
+        <CircularProgressBar />
       </div>
         <div className="column book-right">
           <div>

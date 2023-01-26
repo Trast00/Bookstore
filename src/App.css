@@ -10,6 +10,7 @@
   --color-primary-dark: #0290ff;
   --color-text: #121212;
   --color-text-blue: #4386bf;
+
   --color-text-gray: #888;
 }
 
@@ -146,8 +147,20 @@
 }
 
 .book-mid {
+  flex: 1;
+  justify-content: flex-end;
+  margin-right: 6vw;
   text-align: center;
   flex-wrap: wrap;
+  color: var(--color-text-gray);
+  font-weight: 300;
+
+}
+
+.completed-rate {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #121212;
 }
 
 .book-right {
