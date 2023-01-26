@@ -21,14 +21,12 @@ function CircularProgressBar(props) {
           /* to make the border of the progrss round or not round (butt)*/
           strokeLinecap: 'butt',
 
-          pathTransitionDuration: 0.5,
-
           /* color of the active bar of the progress */
-          pathColor: `rgba(3, 77, 133, 0.8)`,
+          pathColor: `rgba(0, 110, 195, 0.8)`,
         })
         } />
       </div>
-      
+
       <div className='flex-center column'>
           <p className='completed-rate'>{progress}%</p>
           <p>Completed</p>
