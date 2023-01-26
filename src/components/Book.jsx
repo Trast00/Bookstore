@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { removeBook } from '../redux/books/book'
+import CircularProgressBar from './CircularProgressBar'
 
 
 function Book(props) {
@@ -23,7 +24,7 @@ function Book(props) {
         </ul>
       </div>
       <div className='flex-center column book-mid'>
-        <div></div>
+        <CircularProgressBar progress={50}/>
         <div>
           <p className='completed-rate'>0%</p>
           <p>Completed</p>
